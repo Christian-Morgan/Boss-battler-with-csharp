@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6gvgtc46h05u"]
+
+[ext_resource type="Script" path="res://Scripts/Player1.cs" id="1_6cvbu"]
+[ext_resource type="AudioStream" uid="uid://dhh7v3bawfjgk" path="res://Sounds/cartoon-jump-6462.mp3" id="2_gvemk"]
+[ext_resource type="AudioStream" uid="uid://dfyiox5ks6kp2" path="res://rapid-wind-sound-effect-1-108398.mp3" id="3_0eyx8"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5uowi"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pfn1w"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_6cvbu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_5uowi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_pfn1w")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 4, 6)
+
+[node name="DashCooldownTimer" type="Timer" parent="."]
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_gvemk")
+
+[node name="DashSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0eyx8")
+
+[connection signal="timeout" from="DashCooldownTimer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgeu7eabtqk4q"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu.cs" id="1_ypag3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ivua7"]
+bg_color = Color(0, 0.337255, 0.831373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cwkpa"]
+bg_color = Color(0.160784, 0.105882, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6yrm"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 1, 1, 1)
+
+[node name="MainMenu" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0745098, 0.580392, 1, 1)
+script = ExtResource("1_ypag3")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Play" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_ivua7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cwkpa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_w6yrm")
+text = "PLAY
+"
+
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_ivua7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cwkpa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_w6yrm")
+text = "QUIT"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://bt0op04iljpid"]
+
+[ext_resource type="PackedScene" uid="uid://c6gvgtc46h05u" path="res://Scenes/player.tscn" id="1_tg2pb"]
+[ext_resource type="Script" path="res://Scenes/Level1.cs" id="1_xglvl"]
+[ext_resource type="PackedScene" uid="uid://c8td5i4eki84u" path="res://Scenes/playAgain.tscn" id="2_5jtrh"]
+[ext_resource type="PackedScene" uid="uid://bbyif3ljaocml" path="res://Scenes/settings_menu.tscn" id="2_8k0ys"]
+[ext_resource type="PackedScene" uid="uid://kilrcku54dyw" path="res://Scenes/pause_menu.tscn" id="4_f3r2n"]
+[ext_resource type="PackedScene" uid="uid://mnta0i85t5g" path="res://Scenes/pause_menu_.tscn" id="5_8xtue"]
+[ext_resource type="AudioStream" uid="uid://cype8y2273e54" path="res://Sounds/evil-boss-appears-short-instrumental-178343.mp3" id="7_c2qmx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1b7yo"]
+sky_top_color = Color(0.00142602, 0.274927, 0.940302, 1)
+sky_horizon_color = Color(0.401058, 0.670787, 0.971172, 1)
+
+[sub_resource type="Sky" id="Sky_ny52a"]
+sky_material = SubResource("ProceduralSkyMaterial_1b7yo")
+
+[sub_resource type="Environment" id="Environment_g67h2"]
+background_mode = 2
+sky = SubResource("Sky_ny52a")
+
+[node name="Level_1" type="Node3D"]
+script = ExtResource("1_xglvl")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(68.2684, 0, 0, 0, 0.162413, 0, 0, 0, 52.9104, 0, 0, 0)
+use_collision = true
+
+[node name="Player" parent="." instance=ExtResource("1_tg2pb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.152216, 0.123643, 0.0958065)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 6, 7)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_g67h2")
+
+[node name="playAgain" parent="." instance=ExtResource("2_5jtrh")]
+
+[node name="SettingsMenu" parent="." instance=ExtResource("2_8k0ys")]
+visible = false
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_f3r2n")]
+visible = false
+offset_left = 236.0
+offset_top = 153.0
+offset_right = -279.0
+offset_bottom = -153.0
+scale = Vector2(1, 0.975789)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="pauseMenu" parent="CanvasLayer" instance=ExtResource("5_8xtue")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_c2qmx")
+autoplay = true
+parameters/looping = true

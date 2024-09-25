@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://d02cml857xxnb"]
+
+[ext_resource type="Script" path="res://Scripts/CooldownManager.cs" id="1_v1b7i"]
+
+[node name="CooldownManager" type="Node"]
+script = ExtResource("1_v1b7i")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CooldownLabel" type="Label" parent="CanvasLayer"]
+offset_left = 77.0
+offset_top = 544.0
+offset_right = 129.0
+offset_bottom = 578.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
