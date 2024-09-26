@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://uwt3obp7vivp"]
+
+[ext_resource type="PackedScene" uid="uid://buu17k0u86ton" path="res://Animations/zombie_model.glb" id="1_47tch"]
+
+[node name="zombie_model" instance=ExtResource("1_47tch")]
