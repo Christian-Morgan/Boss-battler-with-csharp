@@ -4,6 +4,12 @@ using System.IO;
 
 public partial class Player1 : CharacterBody3D
 {
+    // Camera variables
+    [Export] public Node3D cameraTarget;
+    [Export] public Node3D cameraParent;
+    private float cameraT;
+    private float cameraSpeed;
+
     public const float Speed = 15.0f;
     public const float JumpVelocity = 18f;
     private float dashTime = .2f;  // Duration of the dash (in seconds)

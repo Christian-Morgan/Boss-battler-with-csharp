@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class LevelMusicPlayer : Node
+public partial class Level_1 : Node
 {
     private AudioStreamPlayer audioPlayer;
 

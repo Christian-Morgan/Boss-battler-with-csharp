@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://ctvydh5divmiy"]
+[gd_scene load_steps=11 format=3 uid="uid://nwki45orngt7"]
 
+[ext_resource type="Script" path="res://Scripts/Level_1.cs" id="1_hdwjw"]
 [ext_resource type="PackedScene" uid="uid://c6gvgtc46h05u" path="res://Scenes/player.tscn" id="1_tg2pb"]
-[ext_resource type="Script" path="res://Scripts/Level_1.cs" id="1_xglvl"]
 [ext_resource type="PackedScene" uid="uid://c8td5i4eki84u" path="res://Scenes/playAgain.tscn" id="2_5jtrh"]
 [ext_resource type="PackedScene" uid="uid://bbyif3ljaocml" path="res://Scenes/settings_menu.tscn" id="2_8k0ys"]
 [ext_resource type="PackedScene" uid="uid://kilrcku54dyw" path="res://Scenes/pause_menu.tscn" id="4_f3r2n"]
@@ -20,7 +20,7 @@ background_mode = 2
 sky = SubResource("Sky_ny52a")
 
 [node name="Level_1" type="Node3D"]
-script = ExtResource("1_xglvl")
+script = ExtResource("1_hdwjw")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(68.2684, 0, 0, 0, 0.162413, 0, 0, 0, 52.9104, 0, 0, 0)
